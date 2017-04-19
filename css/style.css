@@ -1,0 +1,30 @@
+body {
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	background: url("https://static.pexels.com/photos/63951/pexels-photo-63951.jpeg");
+	background-size: cover;
+}
+li, ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 10px 0;
+	width: 100%;
+	font-size: 20px;
+}
+.countries {
+	font-weight: 700;
+	margin-top: 30px;
+}
+li {
+	font-weight: 400;
+	display: none;
+}
+h2 {
+	margin: 30px;
+	color: #286090;
+}
+h1{
+	margin: 50px 0 30px 0;
+	color: #286090;
+}

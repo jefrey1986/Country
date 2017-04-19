@@ -16,8 +16,13 @@ $(function(){
 
 	function showCountriesList(resp) {
   		countriesList.empty();
-		resp.forEach(function(item) {
-   			$('<li>').text("Kraj: " + item.name).appendTo(countriesList);
+		var fileteredArray = resp.filter(function(currentElement, index){
+  		//console.log(currentElement);
+  		//console.log(index);
+  		return currentElement;
+		})
+		fileteredArray.forEach(function(item) {
+   			$('<ul>').text("Kraj: " + item.name).appendTo(countriesList);
    			$('<li>').text("Stolica: " + item.capital).appendTo(countriesList);
    			$('<li>').text("Powierzchnia: " + item.area).appendTo(countriesList);
    			$('<li>').text("Liczba ludności: " + item.population).appendTo(countriesList);
@@ -26,6 +31,15 @@ $(function(){
 		});
 	}
 
+	$("ul").click(function(){
+    	var list = $("li")
+    	var isVisible = list.is(":visible");
+    	if(isVisible) {
+      		list.fadeOut("slow");
+    	} else {
+      		list.fadeIn("fast");
+    	}
+  	});
 
 	
 });  
