@@ -15,31 +15,32 @@ $(function(){
 	}
 
 	function showCountriesList(resp) {
+      console.log(resp);
   		countriesList.empty();
-		var fileteredArray = resp.filter(function(currentElement, index){
-  		//console.log(currentElement);
-  		//console.log(index);
-  		return currentElement;
-		})
-		fileteredArray.forEach(function(item) {
-   			$('<ul>').text("Kraj: " + item.name).appendTo(countriesList);
-   			$('<li>').text("Stolica: " + item.capital).appendTo(countriesList);
-   			$('<li>').text("Powierzchnia: " + item.area).appendTo(countriesList);
-   			$('<li>').text("Liczba ludności: " + item.population).appendTo(countriesList);
-   			$('<li>').text("Region: " + item.region).appendTo(countriesList);
-   			$('<li>').text("Język: " + item.languages).appendTo(countriesList);
-		});
-	}
 
-	$("ul").click(function(){
-    	var list = $("li")
-    	var isVisible = list.is(":visible");
-    	if(isVisible) {
-      		list.fadeOut("slow");
-    	} else {
-      		list.fadeIn("fast");
-    	}
-  	});
+      resp.forEach(function(item) {
+        var container = $('<div>');
+        $(container).addClass('container-result');
 
-	
+        $('<h2>')
+          .addClass('heading')
+          .text(item.name)
+          .appendTo(container);
+    
+        $('<ul>')
+          .append($('<li>').text("Stolica: " + item.capital))
+          .append($('<li>').text("Liczba ludności: " + item.population))
+          .append($('<li>').text("Region: " + item.region))
+          .append($('<li>').text("Język: " + item.languages))
+          .appendTo(container)
+          .hide();
+
+        container
+          .appendTo(countriesList)
+          .click(function() {
+            $(this).find('ul').slideToggle();
+          });      
+
+      });
+	}	
 });  

@@ -18,7 +18,7 @@ li, ul{
 }
 li {
 	font-weight: 400;
-	display: none;
+	color: #204c73;
 }
 h2 {
 	margin: 30px;
@@ -27,4 +27,7 @@ h2 {
 h1{
 	margin: 50px 0 30px 0;
 	color: #286090;
+}
+.heading {
+	color: #688fb1;
 }
